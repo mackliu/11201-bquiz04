@@ -27,3 +27,6 @@
     }
     ?>
 </table>
+<div class="ct">
+    <button onclick="location.href='index.php'">返回</button>
+</div>
