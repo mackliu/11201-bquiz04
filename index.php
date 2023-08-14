@@ -24,7 +24,7 @@
                 <a href="?do=look">購物流程</a> |
                 <a href="?do=buycart">購物車</a> |
                 <a href="?do=login">會員登入</a> |
-                <a href="?do=admin">管理登入</a>
+                <a href="?do=admin_login">管理登入</a>
             </div>
             <marquee>年終特賣會開跑了 情人節特惠活動</marquee>
         </div>
