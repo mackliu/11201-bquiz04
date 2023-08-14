@@ -17,7 +17,7 @@
         <td class="pp">
             <?php if($row['acc']!='admin'){ ?>
             <button onclick="location.href='?do=edit_admin&id=<?=$row['id'];?>'">修改</button>
-            <button onclick="del('Admin',$row['id'])">刪除</button>
+            <button onclick="del('Admin',<?=$row['id'];?>)">刪除</button>
             <?php }else {
                  echo "此帳號為最高權限";
                  }?>
