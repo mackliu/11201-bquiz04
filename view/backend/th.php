@@ -18,8 +18,8 @@
     <tr class="tt">
         <td><?=$big['name'];?></td>
         <td class="ct">
-            <button>修改</button>
-            <button>刪除</button>
+            <button onclick="edit(this,<?=$big['id'];?>)">修改</button>
+            <button onclick="del('Type',<?=$big['id'];?>)">刪除</button>
         </td>
     </tr>
         <?php 
@@ -30,8 +30,8 @@
                 <tr class="pp ct">
                     <td><?=$mid['name'];?></td>
                     <td>
-                        <button>修改</button>
-                        <button>刪除</button>
+                        <button onclick="edit(this,<?=$mid['id'];?>)">修改</button>
+                        <button onclick="del('Type',<?=$mid['id'];?>)">刪除</button>
                     </td>
                 </tr>                
             <?php
@@ -54,7 +54,7 @@ function addType(type){
             data={name:$(`#${type}`).val(),big:$("#bigs").val()}
         break;
     }
-    $.post("./api/add_type.php",data,()=>{
+    $.post("./api/save_type.php",data,()=>{
         location.reload();
     })
 }
@@ -63,6 +63,17 @@ function getBigs(){
     $.get("./api/bigs.php",(bigs)=>{
         $("#bigs").html(bigs)
     })
+}
+
+function edit(dom,id){
+    let text=$(dom).parent().prev().text()
+    let name=prompt("請輸入你要修改的類別名稱",text);
+    if(typeof(name)!=null){
+        $.post("./api/save_type.php",{name,id},()=>{
+            //location.reload();
+            $(dom).parent().prev().text(name)
+        })
+    }
 }
 </script>
 
