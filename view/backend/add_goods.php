@@ -61,3 +61,26 @@
     <input type="reset" value="重置">
     <input type="button" value="返回" onclick="location.href='?do=th'"></div>
 </form>
+
+<script>
+getBigs();
+
+$("#big").on("change",function(){
+    getMids($("#big").val())
+})
+
+function getBigs(){
+    $.get("./api/bigs.php",(bigs)=>{
+        $("#big").html(bigs)
+
+        getMids($("#big").val())
+    })
+}
+
+function getMids(id){
+    $.get("./api/mids.php",{id},(mids)=>{
+        $("#mid").html(mids)
+    })
+}
+
+</script>
