@@ -25,6 +25,16 @@ echo $Type->nav($type);?>
 .block > div:nth-child(2){
     width:60%;
 }
+.block .info{
+    border:1px solid white;
+}
+.block .info:nth-child(1){
+    border-top:none;
+
+}
+.block .info:nth-child(4){
+    border-bottom:none;
+}
 </style>
 <?php 
 $items=$Type->items($type);
