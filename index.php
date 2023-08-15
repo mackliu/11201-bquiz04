@@ -41,18 +41,18 @@
         </div>
         <div id="left" class="ct">
             <div style="min-height:400px;">
-            <a>全部商品</a>
+            <a href="?type=0">全部商品(<?=$Goods->count(['sh'=>1]);?>)</a>
             <?php
             $bigs=$Type->all(['big'=>0]);
             foreach($bigs as $big){
                 echo "<div class='ww'>";
-                echo "<a href='?type={$big['id']}'>{$big['name']}</a>";
+                echo "<a href='?type={$big['id']}'>{$big['name']}({$Goods->count(['big'=>$big['id'],'sh'=>1])})</a>";
 
                 if($Type->hasMid($big['id'])>0){
                     echo "<div class='s'>";
                     $mids=$Type->getMids($big['id']);
                     foreach($mids as $mid){
-                        echo "<a href='?type={$mid['id']}'>{$mid['name']}</a>";
+                        echo "<a href='?type={$mid['id']}'>{$mid['name']}({$Goods->count(['mid'=>$mid['id'],'sh'=>1])})</a>";
                     }
                     echo "</div>";
                 }

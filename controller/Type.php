@@ -26,4 +26,13 @@ class Type extends DB{
         $row=$this->find($id);
         return $this->find($row['big']);
     }
+
+    function type($id){
+        $row=$this->find($id);
+        return ($row['big']==0)?'big':'mid';
+    }
+
+    function nav($id){
+        
+    }
 }
