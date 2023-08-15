@@ -28,11 +28,32 @@ class Type extends DB{
     }
 
     function type($id){
-        $row=$this->find($id);
-        return ($row['big']==0)?'big':'mid';
+        if($id!=0){
+            $row=$this->find($id);
+            $type=($row['big']==0)?'big':'mid';
+        }else{
+            $type="all";
+        }
+        return $type;
     }
 
     function nav($id){
-        
+        $type=$this->type($id);
+        $nav='';
+        switch($type){
+            case "all":
+                $nav="全部商品";
+            break;
+            case "big":
+                $row=$this->find($id);
+                $nav=$row['name'];
+            break;
+            case "mid":
+                $row=$this->find($id);
+                $big=$this->find($row['big']);
+                $nav=$big['name'] . " > ".$row['name'];
+            break;
+        }
+        return $nav;
     }
 }
