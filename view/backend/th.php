@@ -10,6 +10,37 @@
     <input type="text" name="mid" id="mid">
     <button onclick="addType('mid')">新增</button>
 </div>
+<table class="all">
+    <?php 
+    $bigs=$Type->all(['big'=>0]);
+    foreach($bigs as $big){
+    ?>
+    <tr class="tt">
+        <td><?=$big['name'];?></td>
+        <td class="ct">
+            <button>修改</button>
+            <button>刪除</button>
+        </td>
+    </tr>
+        <?php 
+            if($Type->hasMid($big['id'])>0){
+                $mids=$Type->getMids($big['id']);
+                foreach($mids as $mid){
+                ?>
+                <tr class="pp ct">
+                    <td><?=$mid['name'];?></td>
+                    <td>
+                        <button>修改</button>
+                        <button>刪除</button>
+                    </td>
+                </tr>                
+            <?php
+            }
+        }
+    }
+    ?>
+</table>
+
 <script>
 getBigs();
 
