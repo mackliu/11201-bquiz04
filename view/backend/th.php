@@ -68,7 +68,7 @@ function getBigs(){
 function edit(dom,id){
     let text=$(dom).parent().prev().text()
     let name=prompt("請輸入你要修改的類別名稱",text);
-    if(typeof(name)!=null){
+    if(name!=null){
         $.post("./api/save_type.php",{name,id},()=>{
             //location.reload();
             $(dom).parent().prev().text(name)
