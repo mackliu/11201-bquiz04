@@ -78,3 +78,20 @@ function edit(dom,id){
 </script>
 
 <h2 class="ct">商品管理</h2>
+<div class="ct"><button onclick="location.href='?do=add_goods'">新增商品</button></div>
+<table class="all">
+    <tr class="tt ct">
+        <td>編號</td>
+        <td>商品名稱</td>
+        <td>庫存量</td>
+        <td>狀態</td>
+        <td>操作</td>
+    </tr>
+    <tr class="pp ct">
+        <td>編號</td>
+        <td>商品名稱</td>
+        <td>庫存量</td>
+        <td>狀態</td>
+        <td>操作</td>
+    </tr>
+</table>
