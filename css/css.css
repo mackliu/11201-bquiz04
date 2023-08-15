@@ -103,10 +103,19 @@ input[type=text],input[type=password]
 {
 	display:none;
 }
+
 div.ww:hover > div.s
 {
 	display:block;
 }
+
+#left div.s  a{
+	background:lightgreen;
+	position:relative;
+	left:20px;
+	z-index:10;
+}
+
 .sb button
 {
 	font-size:12px;
