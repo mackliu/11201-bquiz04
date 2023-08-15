@@ -87,11 +87,30 @@ function edit(dom,id){
         <td>狀態</td>
         <td>操作</td>
     </tr>
+    <?php
+    $rows=$Goods->all();
+    foreach($rows as $row){
+    ?>
     <tr class="pp ct">
-        <td>編號</td>
-        <td>商品名稱</td>
-        <td>庫存量</td>
-        <td>狀態</td>
-        <td>操作</td>
+        <td><?=$row['no'];?></td>
+        <td><?=$row['name'];?></td>
+        <td><?=$row['stock'];?></td>
+        <td><?=($row['sh']==1)?"販售中":"已下架";?></td>
+        <td>
+            <button onclick="location.href='?do=edit_goods&id=<?=$row['id'];?>'">修改</button>
+            <button onclick="del('Goods',<?=$row['id'];?>)">刪除</button>
+            <button onclick="sw(<?=$row['id'];?>,1)">上架</button>
+            <button onclick="sw(<?=$row['id'];?>,0)">下架</button>
+        </td>
     </tr>
+    <?php
+    }
+    ?>    
 </table>
+<script>
+function sw(id,sh){
+    $.post("./api/sw.php",{id,sh},()=>{
+        location.reload();
+    })
+}
+</script>

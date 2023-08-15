@@ -8,6 +8,7 @@ if(!empty($_FILES['img']['tmp_name'])){
 
 if(!isset($_POST['id'])){
     $_POST['no']=rand(100000,999999);
+    $_POST['sh']=1;
 }
 
 $Goods->save($_POST);
