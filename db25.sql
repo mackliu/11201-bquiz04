@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- 主機： 127.0.0.1
--- 產生時間： 2023-08-14 05:23:28
+-- 產生時間： 2023-08-15 03:10:01
 -- 伺服器版本： 10.4.27-MariaDB
 -- PHP 版本： 8.2.0
 
@@ -39,7 +39,8 @@ CREATE TABLE `admins` (
 --
 
 INSERT INTO `admins` (`id`, `acc`, `pw`, `pr`) VALUES
-(1, 'admin', '1234', 'a:5:{i:0;i:1;i:1;i:2;i:2;i:3;i:3;i:4;i:4;i:5;}');
+(1, 'admin', '1234', 'a:5:{i:0;i:1;i:1;i:2;i:2;i:3;i:3;i:4;i:4;i:5;}'),
+(2, 'mack', '1234', 'a:3:{i:0;s:1:\"1\";i:1;s:1:\"3\";i:2;s:1:\"5\";}');
 
 -- --------------------------------------------------------
 
@@ -58,6 +59,35 @@ CREATE TABLE `bottoms` (
 
 INSERT INTO `bottoms` (`id`, `bottom`) VALUES
 (1, 'copyright 2023 精品電子商務頁尾版權宣告');
+
+-- --------------------------------------------------------
+
+--
+-- 資料表結構 `types`
+--
+
+CREATE TABLE `types` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `name` text NOT NULL,
+  `big` int(10) UNSIGNED NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- 傾印資料表的資料 `types`
+--
+
+INSERT INTO `types` (`id`, `name`, `big`) VALUES
+(1, '流行皮件', 0),
+(2, '流行鞋區', 0),
+(3, '流行飾品', 0),
+(4, '背包', 0),
+(5, '男用皮件', 1),
+(6, '女用皮件', 1),
+(7, '少女鞋區', 2),
+(8, '紳士流行鞋區', 2),
+(9, '時尚手錶', 3),
+(10, '時尚珠寶', 3),
+(11, '背包', 4);
 
 -- --------------------------------------------------------
 
@@ -82,8 +112,7 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `name`, `acc`, `pw`, `tel`, `addr`, `email`, `regdate`) VALUES
 (3, 'mem01', 'mem01', '1234', '12313123123', 'sdfadfasf', 'fdsafdsfsf', '0000-00-00'),
-(4, 'mack', 'mack', '1234', '13231', 'fafsdaf', 'fdsafdsaf', '2023-08-14'),
-(5, 'mem02', 'mem02', '5678', 'sdf1232313ds', 'safdsaf', 'dffsafdsa', '2023-08-14');
+(4, '劉', 'mack', '1234', '0975787687', '泰山', 'taisun@gamil.com', '2023-08-14');
 
 --
 -- 已傾印資料表的索引
@@ -102,6 +131,12 @@ ALTER TABLE `bottoms`
   ADD PRIMARY KEY (`id`);
 
 --
+-- 資料表索引 `types`
+--
+ALTER TABLE `types`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- 資料表索引 `users`
 --
 ALTER TABLE `users`
@@ -115,13 +150,19 @@ ALTER TABLE `users`
 -- 使用資料表自動遞增(AUTO_INCREMENT) `admins`
 --
 ALTER TABLE `admins`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- 使用資料表自動遞增(AUTO_INCREMENT) `bottoms`
 --
 ALTER TABLE `bottoms`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- 使用資料表自動遞增(AUTO_INCREMENT) `types`
+--
+ALTER TABLE `types`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- 使用資料表自動遞增(AUTO_INCREMENT) `users`
