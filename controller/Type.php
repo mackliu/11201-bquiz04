@@ -1,5 +1,6 @@
 <?php
 include_once "DB.php";
+include_once "Goods.php";
 
 class Type extends DB{
     function __construct()
@@ -55,5 +56,24 @@ class Type extends DB{
             break;
         }
         return $nav;
+    }
+
+    /**
+     * $id=>網址傳來的分類id
+     */
+    function items($id){
+        $type=$this->type($id);
+        switch($type){
+            case "all":
+                $rows=(new Goods)->all(['sh'=>1]);
+            break;
+            case "big":
+                $rows=(new Goods)->all(['big'=>$id,'sh'=>1]);
+            break;
+            case "mid":
+                $rows=(new Goods)->all(['mid'=>$id,'sh'=>1]);
+            break;
+        }
+        return $rows;
     }
 }
