@@ -66,6 +66,10 @@
                 <div style="color:#f00; font-size:28px;">
                     00005 </div>
             </span>
+            <div class="cart">
+                <div id="total"></div>
+                <div id="info"></div>
+            </div>
         </div>
         <div id="right">
         <?php
@@ -95,6 +99,8 @@ function chkCart(){
     $.get("./api/chk_cart.php",(cart)=>{
         let carts=JSON.parse(cart)
         $("#items").text(`(${carts.count})`)
+        $("#total").html(`<span style='font-size:24px;color:red;font-weight:bolder'>$${carts.total}</span>`)
+        $("#info").html(`(${carts.count}) <a href='?do=buycart'>結帳 ></a>`)
     })
 
 }

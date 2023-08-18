@@ -25,6 +25,7 @@ body
 	min-height:550px;
 	vertical-align:top;
 	border:#000 1px solid;
+	position:relative;
 }
 #left a
 {
@@ -34,6 +35,7 @@ body
 	background:#F4C591;
 	margin:10px auto 10px auto;
 	color:#65350A;
+
 }
 .ct
 {
@@ -119,4 +121,38 @@ div.ww:hover > div.s
 .sb button
 {
 	font-size:12px;
+}
+
+#left .cart {
+    width: 120px;
+    height: 60px;
+    border: 1px solid #ccc;
+    box-shadow: 0 0 10px #ccc;
+    border-radius: 10px;
+    bottom: 0px;
+    left: 0px;
+    position: absolute;
+	padding:10px;
+	background-image: url("../icon/cart.png");
+	background-size:cover;
+	background-position: center;
+}
+
+#info a{
+	display:initial;
+	padding:initial;
+	text-decoration:none;
+	background:initial;
+	margin:initial;
+	color:initial;
+	font-weight: bolder;
+	text-shadow: 2px 2px 5px white;
+	color:blue;
+}
+#total{
+	text-shadow: 2px 2px 2px lawngreen;
+	width:100px;
+	height:30px;
+	background-color: rgba(250,250,250,0.7);
+	margin:auto;
 }
