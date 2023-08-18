@@ -69,6 +69,7 @@ function checkout(){
 
     $.post("./api/checkout.php",user,()=>{
         alert("訂購完成\n感謝您的選購")
+        location.href='index.php';
     })
 }
 </script>

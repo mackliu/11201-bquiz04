@@ -6,3 +6,5 @@ $_POST['orderdate']=date("Y-m-d");
 $_POST['cart']=serialize($_SESSION['cart']);
 
 $Order->save($_POST);
+
+unset($_SESSION['cart']);
