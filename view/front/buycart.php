@@ -10,7 +10,7 @@ if(!isset($_SESSION['user'])){
 
 echo "<h1 class='ct'>{$_SESSION['user']}的購物車</h2>";
 
-if(isset($_SESSION['cart'])){
+if(isset($_SESSION['cart']) && !empty($_SESSION['cart'])){
 ?>
 <table class="all">
     <tr class="tt ct">
@@ -49,12 +49,11 @@ if(isset($_SESSION['cart'])){
 <script>
 function delCart(id){
     $.post("./api/del_cart.php",{id},()=>{
-        location.reload();
+        location.href='index.php?do=buycart';
     })
 }
 
 </script>
-
 
 <?php 
 }else{
