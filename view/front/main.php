@@ -50,7 +50,7 @@ foreach ($items as $item) {
         <div class="info tt ct"><?=$item['name'];?></div>
         <div class="info pp">
             價錢:<?=$item['price'];?>
-            <a href="?do=buycart&id=<?=$item['id'];?>&qt=1" style="float:right">
+            <a href="javascript:buy(<?=$item['id'];?>,1)" style="float:right">
                 <img src="./icon/0402.jpg" alt="">
             </a>
         </div>
@@ -66,3 +66,11 @@ foreach ($items as $item) {
 <?php
 }
 ?>
+
+<script>
+function buy(id,qt){
+$.post("./api/buy.php",{id,qt},()=>{
+    chkCart();
+})
+}
+</script>

@@ -22,7 +22,7 @@
                 <a href="?">回首頁</a> |
                 <a href="?do=news">最新消息</a> |
                 <a href="?do=look">購物流程</a> |
-                <a href="?do=buycart">購物車</a> |
+                <a href="?do=buycart">購物車<span id='items'></span></a> |
                 <?php 
                 if(isset($_SESSION['user'])){
                     echo "<a href='./api/logout.php?do=user'>登出</a> |";
@@ -89,3 +89,13 @@
 </body>
 
 </html>
+<script>
+chkCart()
+function chkCart(){
+    $.get("./api/chk_cart.php",(cart)=>{
+        let carts=JSON.parse(cart)
+        $("#items").text(`(${carts.count})`)
+    })
+
+}
+</script>
