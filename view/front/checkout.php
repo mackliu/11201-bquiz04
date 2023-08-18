@@ -54,29 +54,21 @@
 </table>
 <div class="all tt ct">總價:<?=$sum;?></div>
 <div class="ct">
-        <input type="button" value="確定送出" onclick="reg()">
-        <input type="button" value="返回修改訂單">
+        <input type="hidden" name="sum" id="sum" value="<?=$sum?>">
+        <input type="button" value="確定送出" onclick="checkout()">
+        <input type="button" value="返回修改訂單" onclick="location.href='?do=buycart'">
     </div>
 <script>
-function reg(){
+function checkout(){
     let user={};
     user.name=$("#name").val();
-    user.acc=$("#acc").val();
-    user.pw=$("#pw").val();
     user.tel=$("#tel").val();
     user.addr=$("#addr").val();
     user.email=$("#email").val();
-    user.regdate=$("#regdate").val();
+    user.total=$("#sum").val();
 
-    $.get("./api/chk_acc.php",{acc:user.acc},(res)=>{
-        if(parseInt(res)==1 || $("#acc").val()=='admin'){
-            alert("此帳號已被使用");
-        }else{
-            $.post("./api/reg.php",user,()=>{
-                alert("註冊成功，歡迎加入")
-                location.href="?do=login";
-            })
-        }
+    $.post("./api/checkout.php",user,()=>{
+        alert("訂購完成\n感謝您的選購")
     })
 }
 </script>
