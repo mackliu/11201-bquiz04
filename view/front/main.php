@@ -50,7 +50,7 @@ foreach ($items as $item) {
         <div class="info tt ct"><?=$item['name'];?></div>
         <div class="info pp">
             價錢:<?=$item['price'];?>
-            <a href="" style="float:right">
+            <a href="?do=buycart&id=<?=$item['id'];?>&qt=1" style="float:right">
                 <img src="./icon/0402.jpg" alt="">
             </a>
         </div>
