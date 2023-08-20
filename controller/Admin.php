@@ -20,4 +20,9 @@ class Admin extends DB{
         $view['rows']=$this->all();
         return $this->view("./view/backend/admin.php",$view);
     }
+
+    function pr(){
+        $admin=$this->find(['acc'=>$_SESSION['admin']]);
+        return unserialize($admin['pr']);
+    }
 }
